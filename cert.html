@@ -1,0 +1,382 @@
+<!--
+  Cybersecurity Essentials — Certificate of Completion
+  Articulate Rise Custom HTML Block
+  Dimensions: 1190 x 930 px canvas | exported as PDF at 314.9 x 246.1 mm
+  Theme: #285f9f border block | light blue (#EBF3FC) centre | white radial highlight
+-->
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .cw { padding: 1.5rem 0; font-family: sans-serif; max-width: 700px; margin: 0 auto; }
+  .step { display: none; } .step.on { display: block; }
+
+  .panel {
+    background: #f0f6ff; border-radius: 14px; padding: 1.75rem;
+    margin-bottom: 1.25rem; border: 2px solid #285f9f;
+    position: relative; overflow: hidden;
+  }
+  .panel::before {
+    content: ''; position: absolute; top: -50px; right: -50px;
+    width: 180px; height: 180px;
+    border: 32px solid rgba(40,95,159,0.08); border-radius: 50%;
+  }
+
+  .badges { display: flex; gap: 8px; margin-bottom: 1.1rem; position: relative; z-index: 1; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 4px 12px; border-radius: 20px;
+    font-size: 10px; font-weight: 600; letter-spacing: .5px; text-transform: uppercase;
+    background: #daeaf8; color: #285f9f; border: 1px solid rgba(40,95,159,0.3);
+  }
+  .dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+
+  .panel h2 { font-size: 20px; font-weight: 500; color: #0d2a4a; margin-bottom: .4rem; position: relative; z-index: 1; }
+  .panel p  { font-size: 13px; color: #4a6fa5; line-height: 1.65; position: relative; z-index: 1; }
+
+  .flabel {
+    display: block; font-size: 10px; color: #7a9cc0;
+    letter-spacing: .8px; text-transform: uppercase;
+    margin: 1.1rem 0 7px; font-weight: 600; position: relative; z-index: 1;
+  }
+  .iw { position: relative; z-index: 1; }
+  .iico { position: absolute; left: 13px; top: 50%; transform: translateY(-50%); color: #285f9f; }
+  .cinput {
+    width: 100%; padding: 12px 14px 12px 42px;
+    background: #fff; border: 1.5px solid rgba(40,95,159,0.35);
+    border-radius: 9px; color: #0d2a4a; font-size: 15px; outline: none;
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .cinput::placeholder { color: #aac0d8; }
+  .cinput:focus { border-color: #285f9f; box-shadow: 0 0 0 3px rgba(40,95,159,0.12); }
+
+  .err { font-size: 11px; color: #c0392b; margin-top: 6px; min-height: 15px; position: relative; z-index: 1; }
+
+  .btnrow { display: flex; gap: 9px; margin-top: 1.25rem; flex-wrap: wrap; position: relative; z-index: 1; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 10px 20px; border-radius: 9px;
+    font-size: 13px; font-weight: 600; cursor: pointer; border: none;
+    transition: opacity .15s;
+  }
+  .btn:hover { opacity: .86; } .btn:active { transform: scale(.98); }
+  .bp { background: #285f9f; color: #fff; }
+  .bg { background: #daeaf8; color: #285f9f; border: 1px solid rgba(40,95,159,0.3); }
+
+  .okstrip {
+    display: flex; align-items: center; gap: 8px; margin-bottom: .9rem;
+    padding: 9px 14px; background: #daeaf8;
+    border: 1px solid rgba(40,95,159,0.35); border-radius: 8px;
+    color: #285f9f; font-size: 12px; font-weight: 600;
+  }
+  canvas#cc {
+    display: block; width: 100%; height: auto;
+    border-radius: 12px; margin-bottom: 1.1rem;
+    border: 1px solid #c8ddf0;
+  }
+</style>
+
+<div class="cw">
+
+  <!-- Step 1 -->
+  <div class="step on" id="s1">
+    <div class="panel">
+      <div class="badges">
+        <span class="badge"><span class="dot"></span>Cybersecurity Essentials</span>
+        <span class="badge"><span class="dot"></span>Certificate</span>
+      </div>
+      <h2>You have completed the course</h2>
+      <p>Enter your full name below to generate and download your personalised certificate of completion.</p>
+      <label class="flabel" for="ni">Your full name</label>
+      <div class="iw">
+        <svg class="iico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+        </svg>
+        <input class="cinput" type="text" id="ni" placeholder="e.g. Samuel Afriyie Opoku" maxlength="80" autocomplete="name"/>
+      </div>
+      <p class="err" id="em"></p>
+      <div class="btnrow">
+        <button class="btn bp" onclick="certGo()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 12l2 2 4-4"/>
+          </svg>
+          Generate certificate
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 2 -->
+  <div class="step" id="s2">
+    <div class="okstrip">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+      Certificate ready — preview below
+    </div>
+    <canvas id="cc" width="1190" height="930"></canvas>
+    <div class="btnrow">
+      <button class="btn bp" onclick="certDL()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Download certificate (PDF)
+      </button>
+      <button class="btn bg" onclick="certReset()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="1 4 1 10 7 10"/>
+          <path d="M3.51 15a9 9 0 1 0 .49-3.5"/>
+        </svg>
+        Start over
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+var RN = '', RD = '';
+
+function certGo() {
+  var v = document.getElementById('ni').value.trim();
+  var e = document.getElementById('em');
+  if (!v) { e.textContent = 'Please enter your full name to continue.'; return; }
+  if (v.length < 2) { e.textContent = 'At least 2 characters required.'; return; }
+  e.textContent = '';
+  RN = v;
+  var now = new Date();
+  RD = now.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+  document.getElementById('s1').classList.remove('on');
+  document.getElementById('s2').classList.add('on');
+  setTimeout(certDraw, 80);
+}
+
+function certReset() {
+  document.getElementById('s2').classList.remove('on');
+  document.getElementById('s1').classList.add('on');
+  document.getElementById('ni').value = '';
+  document.getElementById('em').textContent = '';
+}
+
+function certDraw() {
+  var cv = document.getElementById('cc');
+  var c = cv.getContext('2d');
+  var W = 1190, H = 930;
+  c.clearRect(0, 0, W, H);
+
+  /* White base */
+  c.fillStyle = '#ffffff';
+  c.fillRect(0, 0, W, H);
+
+  /* Light blue inner area */
+  var bw = 72;
+  var ins = bw + 2;
+  c.fillStyle = '#EBF3FC';
+  c.fillRect(ins, ins, W - ins * 2, H - ins * 2);
+
+  /* White radial highlight in centre */
+  var rg = c.createRadialGradient(W/2, H/2, 0, W/2, H/2, W * 0.48);
+  rg.addColorStop(0, 'rgba(255,255,255,0.85)');
+  rg.addColorStop(0.5, 'rgba(220,236,252,0.4)');
+  rg.addColorStop(1, 'rgba(188,220,248,0.0)');
+  c.fillStyle = rg;
+  c.fillRect(ins, ins, W - ins * 2, H - ins * 2);
+
+  /* #285f9f border block */
+  c.fillStyle = '#285f9f';
+  c.fillRect(0, 0, W, bw);
+  c.fillRect(0, H - bw, W, bw);
+  c.fillRect(0, 0, bw, H);
+  c.fillRect(W - bw, 0, bw, H);
+
+  /* Darker corner squares */
+  c.fillStyle = '#1e4f8a';
+  [[0,0],[W-bw,0],[0,H-bw],[W-bw,H-bw]].forEach(function(p) {
+    c.fillRect(p[0], p[1], bw, bw);
+  });
+
+  /* Corner ring ornaments */
+  [[bw/2,bw/2],[W-bw/2,bw/2],[bw/2,H-bw/2],[W-bw/2,H-bw/2]].forEach(function(p) {
+    var x = p[0], y = p[1];
+    c.strokeStyle = 'rgba(255,255,255,0.6)'; c.lineWidth = 1.5;
+    c.beginPath(); c.arc(x, y, 16, 0, Math.PI*2); c.stroke();
+    c.strokeStyle = 'rgba(255,255,255,0.22)'; c.lineWidth = 1;
+    c.beginPath(); c.arc(x, y, 23, 0, Math.PI*2); c.stroke();
+    c.fillStyle = 'rgba(255,255,255,0.78)';
+    c.beginPath(); c.arc(x, y, 5, 0, Math.PI*2); c.fill();
+  });
+
+  /* Inner double rule */
+  c.strokeStyle = 'rgba(40,95,159,0.22)'; c.lineWidth = 1.5;
+  c.strokeRect(bw+10, bw+10, W-2*(bw+10), H-2*(bw+10));
+  c.strokeStyle = 'rgba(40,95,159,0.08)'; c.lineWidth = 1;
+  c.strokeRect(bw+18, bw+18, W-2*(bw+18), H-2*(bw+18));
+
+  /* Border labels */
+  c.fillStyle = 'rgba(255,255,255,0.85)';
+  c.font = '600 13px sans-serif'; c.textAlign = 'center';
+  c.fillText('CYBERSECURITY ESSENTIALS', W/2, bw/2 + 5);
+  c.fillStyle = 'rgba(255,255,255,0.6)';
+  c.font = '500 12px sans-serif';
+  c.fillText('Issued: ' + RD, W/2, H - bw/2 + 5);
+
+  /* Dashed side lines */
+  [bw/2, W-bw/2].forEach(function(x) {
+    c.strokeStyle = 'rgba(255,255,255,0.18)'; c.lineWidth = 1;
+    c.setLineDash([4, 8]);
+    ln(c, x, bw+30, x, H-bw-30);
+    c.setLineDash([]);
+    shdDraw(c, x, H/2, 18, 'rgba(255,255,255,0.48)');
+  });
+
+  /* Certificate label */
+  c.fillStyle = '#285f9f';
+  c.font = '600 14px sans-serif'; c.textAlign = 'center';
+  c.fillText('CERTIFICATE OF COMPLETION', W/2, bw + 42);
+
+  /* Top decorative rule */
+  var ty = bw + 56;
+  c.strokeStyle = '#285f9f'; c.lineWidth = 1.5;
+  ln(c, W/2-230, ty, W/2-32, ty);
+  ln(c, W/2+32, ty, W/2+230, ty);
+  dmnd(c, W/2, ty, '#285f9f', 9);
+  [[W/2-230, ty],[W/2+230, ty]].forEach(function(p) {
+    c.lineWidth = 2; ln(c, p[0], p[1]-6, p[0], p[1]+6);
+  });
+
+  /* Main course title */
+  c.fillStyle = '#0d2a4a';
+  c.font = '300 68px Georgia,serif'; c.textAlign = 'center';
+  c.fillText('Cybersecurity Essentials', W/2, bw + 168);
+
+  /* Presented to */
+  c.fillStyle = '#5a7fa8';
+  c.font = '400 19px sans-serif'; c.textAlign = 'center';
+  c.fillText('This is to certify that', W/2, bw + 230);
+
+  /* Name */
+  var nameY = bw + 330;
+  var nwEst = RN.length * 36;
+  var nbox = Math.min(nwEst + 120, 820);
+  rrFill(c, W/2 - nbox/2, nameY - 68, nbox, 84, 10, 'rgba(40,95,159,0.05)');
+
+  c.fillStyle = '#0d2a4a';
+  c.font = 'italic 300 80px Georgia,serif'; c.textAlign = 'center';
+  c.fillText(RN, W/2, nameY);
+
+  var nwm = c.measureText(RN).width;
+  var ul = Math.min(nwm + 80, 740);
+  c.strokeStyle = '#285f9f'; c.lineWidth = 1.5;
+  ln(c, W/2 - ul/2, nameY+18, W/2 + ul/2, nameY+18);
+
+  /* Description */
+  c.fillStyle = '#3d5c7a';
+  c.font = '400 19px sans-serif'; c.textAlign = 'center';
+  c.fillText('has successfully completed the Cybersecurity Essentials eLearning course,', W/2, nameY + 80);
+  c.fillText('demonstrating knowledge in phishing awareness, password security, safe internet use,', W/2, nameY + 112);
+  c.fillText('device protection, and incident reporting.', W/2, nameY + 144);
+
+  /* Mid rule */
+  var mr = nameY + 182;
+  c.strokeStyle = '#285f9f'; c.lineWidth = 1.5;
+  ln(c, W/2-250, mr, W/2-32, mr);
+  ln(c, W/2+32, mr, W/2+250, mr);
+  dmnd(c, W/2, mr, '#285f9f', 9);
+  [[W/2-250,mr],[W/2+250,mr]].forEach(function(p) {
+    c.lineWidth = 2; ln(c, p[0], p[1]-6, p[0], p[1]+6);
+  });
+
+  /* Seal */
+  sealDraw(c, W/2, nameY + 330, 80);
+
+  /* Bottom rule */
+  c.strokeStyle = 'rgba(40,95,159,0.25)'; c.lineWidth = 1;
+  ln(c, bw+30, H-bw-38, W-bw-30, H-bw-38);
+}
+
+function sealDraw(c, cx, cy, r) {
+  c.strokeStyle = 'rgba(40,95,159,0.10)'; c.lineWidth = 1;
+  c.beginPath(); c.arc(cx, cy, r+26, 0, Math.PI*2); c.stroke();
+  c.strokeStyle = 'rgba(40,95,159,0.16)'; c.lineWidth = 1;
+  c.beginPath(); c.arc(cx, cy, r+18, 0, Math.PI*2); c.stroke();
+
+  for (var a = 0; a < 360; a += 12) {
+    var rad = a * Math.PI / 180;
+    var long = a % 60 === 0;
+    c.strokeStyle = long ? 'rgba(40,95,159,0.7)' : 'rgba(40,95,159,0.32)';
+    c.lineWidth = long ? 2 : 1;
+    ln(c, cx+Math.cos(rad)*(r+8), cy+Math.sin(rad)*(r+8),
+          cx+Math.cos(rad)*(r+14), cy+Math.sin(rad)*(r+14));
+  }
+
+  c.fillStyle = '#285f9f';
+  c.beginPath(); c.arc(cx, cy, r, 0, Math.PI*2); c.fill();
+  c.strokeStyle = 'rgba(255,255,255,0.22)'; c.lineWidth = 1.5;
+  c.beginPath(); c.arc(cx, cy, r-14, 0, Math.PI*2); c.stroke();
+
+  shdDraw(c, cx, cy-8, 28, 'rgba(255,255,255,0.92)');
+
+  c.fillStyle = 'rgba(255,255,255,0.82)';
+  c.font = '700 13px sans-serif'; c.textAlign = 'center';
+  c.fillText('VERIFIED', cx, cy + r - 16);
+
+  c.fillStyle = '#285f9f';
+  c.font = '600 12px sans-serif'; c.textAlign = 'center';
+  c.fillText('OFFICIAL SEAL', cx, cy + r + 20);
+}
+
+function shdDraw(c, cx, cy, s, col) {
+  c.fillStyle = col;
+  c.beginPath();
+  c.moveTo(cx, cy-s);
+  c.lineTo(cx+s*.7, cy-s*.5);
+  c.lineTo(cx+s*.7, cy+s*.1);
+  c.quadraticCurveTo(cx+s*.7, cy+s*.8, cx, cy+s);
+  c.quadraticCurveTo(cx-s*.7, cy+s*.8, cx-s*.7, cy+s*.1);
+  c.lineTo(cx-s*.7, cy-s*.5);
+  c.closePath(); c.fill();
+  c.strokeStyle = 'rgba(40,95,159,0.5)';
+  c.lineWidth = Math.max(2, s*.1);
+  c.lineCap = 'round'; c.lineJoin = 'round';
+  c.beginPath();
+  c.moveTo(cx-s*.26, cy+s*.06);
+  c.lineTo(cx, cy+s*.34);
+  c.lineTo(cx+s*.3, cy-s*.18);
+  c.stroke(); c.lineCap = 'butt';
+}
+
+function dmnd(c, x, y, col, s) {
+  c.fillStyle = col;
+  c.beginPath();
+  c.moveTo(x, y-s); c.lineTo(x+s, y); c.lineTo(x, y+s); c.lineTo(x-s, y);
+  c.closePath(); c.fill();
+}
+
+function rrFill(c, x, y, w, h, r, col) {
+  c.fillStyle = col;
+  c.beginPath();
+  c.moveTo(x+r,y); c.lineTo(x+w-r,y); c.quadraticCurveTo(x+w,y,x+w,y+r);
+  c.lineTo(x+w,y+h-r); c.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+  c.lineTo(x+r,y+h); c.quadraticCurveTo(x,y+h,x,y+h-r);
+  c.lineTo(x,y+r); c.quadraticCurveTo(x,y,x+r,y);
+  c.closePath(); c.fill();
+}
+
+function ln(c, x1, y1, x2, y2) {
+  c.beginPath(); c.moveTo(x1, y1); c.lineTo(x2, y2); c.stroke();
+}
+
+function certDL() {
+  var cv = document.getElementById('cc');
+  var img = cv.toDataURL('image/png');
+  var lib = (window.jspdf && window.jspdf.jsPDF) || (typeof jspdf !== 'undefined' && jspdf.jsPDF);
+  if (!lib) { alert('PDF library still loading. Please wait a moment and try again.'); return; }
+  var Wmm = 314.9, Hmm = 246.1;
+  var doc = new lib({ orientation: 'landscape', unit: 'mm', format: [Wmm, Hmm] });
+  doc.addImage(img, 'PNG', 0, 0, Wmm, Hmm);
+  var safe = RN.replace(/[^a-z0-9]/gi, '_').toLowerCase();
+  doc.save('cybersecurity_certificate_' + safe + '.pdf');
+}
+</script>
